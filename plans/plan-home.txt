@@ -1,0 +1,39 @@
+home name 
+language icon
+mode icon
+position absoloute errors {
+
+404 Error found but I’m too dumb to understand
+
+Failed to load resource: net::ERR_CONNECTION_REFUSED
+
+Failed to load resource: the server responded with a status of 401 ()
+www.unknown.com/api/masthead/v1/masthead?market=bd&language=en:1   
+
+GET https://youareanidiot.cc/youare.mp3 net::ERR_ABORTED 404
+
+Uncaught ReferenceError: require is not defined
+    at script.js:1:18
+
+Uncaught SyntaxError: Cannot use import statement outside a module (at module.js:1:1)
+
+Uncaught SyntaxError: Unexpected identifier 'dummmy' 
+(at module.js:2:11)
+
+Uncaught ReferenceError: require is not defined
+    at script.js:1:18
+
+Uncaught ReferenceError: require is not defined
+    at script.js:1:18
+
+Uncaught SyntaxError: Cannot use import statement outside a module (at module.js:1:1)
+
+
+}
+names half width 
+hashtags 
+chair
+icon
+loves 
+display
+social icons
