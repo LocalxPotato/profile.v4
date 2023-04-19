@@ -1,195 +1,591 @@
-:root {
-    --back-color : #070A14;
-    --error-text : #f79898;
-    --error-back : #ef383880;
-    --error-border : #ff000086;
-    --more-dark-text : #CBCBCB;
-    --nato : 'Noto Sans', sans-serif;
-    --poppins: 'Poppins', sans-serif;
-    --tilt: 'Tilt Warp', cursive;
-    --less-dark-text: #D9D9D9;
-    --white : #FFF;
-    --purple : #8E1DFF;
-}
-body {
-    margin:0;
+  :root {
+    --back-color: #070a14;
+    --back-content: #04050b;
+    --error-text: #f79898;
+    --error-back: #ff1b1bac;
+    --error-border: #ff000086;
+    --more-dark-text: #cbcbcb;
+    --nato: "Noto Sans", sans-serif;
+    --poppins: "Poppins", sans-serif;
+    --tilt: "Tilt Warp", cursive;
+    --changa: "Changa", sans-serif;
+    --less-dark-text: #d9d9d9;
+    --white: #fff;
+    --purple: #8e1dff;
+  }
+  body {
+    margin: 0;
     background-color: var(--back-color);
     * {
-        box-sizing: border-box;
-        text-decoration: none;
-
+      box-sizing: border-box;
+      text-decoration: none;
     }
+  }
+  .scrollDown {
+    color: var(--less-dark-text);
+    font-size: 1vw;
+    font-family: var(--nato);
+    position: absolute;
+    left: 2vw;
+    bottom: -495vh;
 
-}
+    p {
+      rotate: -90deg;
+      translate: -50% -200%;
+    }
+    div {
+      background-color: var(--more-dark-text);
+      width: fit-content;
+      opacity: 0.5;
 
-.home {
+      padding: 1px;
+      height: 500vh;
+      border-radius: 5px;
+    }
+  }
+
+  .home {
     overflow: hidden;
     position: relative;
     min-height: 100vh;
     .errors {
+      position: absolute;
+      bottom: 50%;
+      right: -0px;
+      color: var(--error-text);
+
+      div {
+        border-bottom: var(--error-border) 1px solid;
+        align-items: flex-start;
+        display: flex;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        width: 500px;
+        background-color: var(--error-back);
+        animation: divAppear forwards 300ms;
+        translate: 0 -1000%;
+        position: relative;
+        opacity: 0;
+        left: 0;
+        top: 0;
+        animation-delay: 5s;
+      }
+      @keyframes divAppear {
+        from {
+        }
+        to {
+          translate: 0 0%;
+        }
+      }
+      legend {
+        width: 450px;
+        height: 450px;
         position: absolute;
-        bottom :50%;
-        right: -0px;
-        color: var(--error-text);
-        div {
-            border-bottom: var(--error-border) 1px solid;
-            align-items:flex-start;
-            display: flex;
-            padding: 10px 15px;
-            margin-bottom: 10px;
-            width: 500px;
-            background-color: var(--error-back);
-            
+        top: 25%;
+        border-radius: 50%;
+        z-index: -1;
+        filter: blur(200px);
+        right: 0;
+        opacity: 0;
+        background-color: red;
+        animation: blurAppear 2s forwards;
+        @keyframes blurAppear {
+          to {
+            opacity: 1;
+          }
         }
-        legend {
-            width: 450px;
-            height: 450px;
-            position: absolute;
-            top:25%;
-            border-radius: 50%;
-            z-index: -1;
-            filter: blur(200px);
-            right: 0;
-            background-color: red;
-        }
-        img {
-            display: inline;
-            margin-right: 20px;
-            width: 30px;
-        }
-        p {
-            font-family: monospace;
-            margin: 0;
-            font-size: 12px;
-        }
+      }
+      img {
+        display: inline;
+        margin-right: 20px;
+        width: 30px;
+      }
+      p {
+        font-family: monospace;
+        margin: 0;
+        font-size: 12px;
+      }
     }
     .topbar {
-        width: 55%; 
-        padding-left: 160px;
+      width: 55%;
+      padding-left: 160px;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      align-items: center;
+      height: 140px;
+      font-family: var(--nato);
+      font-size: 17px;
+      .topbarName {
+        color: var(--more-dark-text);
+      }
+
+      div {
+        width: 100px;
         display: flex;
         justify-content: space-between;
-        position: absolute;
-        top :0;
-        align-items: center;
-        height: 140px;
-        font-family: var(--nato);
-        font-size: 17px;
-        .topbarName {
-            color :var(--more-dark-text);
+      }
+      svg {
+        width: 30px;
+        .mode {
+          width: 40px;
         }
-
-        div {
-            width: 100px;
-            display: flex;
-            justify-content: space-between;
+        path {
+          fill: var(--more-dark-text);
         }
-        svg {
-            width: 30px;
-            .mode {
-                width: 40px;
-            }
-            path {
-                fill: var(--more-dark-text);
-            }
-
-        }
+      }
     }
     .left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 60%;
-        height:100vh;
-        h1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      height: 100vh;
+      * {
+        position: relative;
+      }
+      h1 {
+        transition: 400ms;
+        left: -200%;
+
         color: var(--less-dark-text);
-            font-size: 70px;
-            margin: 0;
-            font-family: var(--poppins);
+        font-size: 5vw;
+        margin: 0;
+        font-family: var(--poppins);
+        display: flex;
+        align-items: center;
+        span {
+          position: absolute;
+          background-color: var(--purple);
+          left: -18px;
+          height: 90%;
+          width: 22%;
+          border-radius: 10px;
+          z-index: -1;
+          opacity: 0.7;
+        }
+      }
+      p {
+        margin: 0;
+        font-size: 1.5vw;
+        color: var(--more-dark-text);
+        opacity: 0.8;
+        font-family: var(--poppins);
+        font-weight: bold;
+        strong {
+          color: var(--purple);
+        }
+      }
+      > div {
+        > div {
+          transition: 600ms;
+          left: -200%;
+          display: flex;
+          align-items: flex-start;
+          span {
             position: relative;
-            display: flex;
-            align-items: center;
-            span {
-                position: absolute;
-                background-color: var(--purple);
-                left :-18px;
-                height: 90% ;
-                width: 90px;
-                border-radius: 10px;
-                z-index: -1;
-                opacity: 0.7;
-            }
+            right: 13px;
+            bottom: 17px;
+            margin: 30px 17px;
+            background-color: white;
+            padding: 0.1vw;
+            border-radius: 10px;
+            width: 4.5vw;
+            height: fit-content;
+          }
         }
-        p {
-            margin: 0;
-            font-size: 20px;
-            color: var(--more-dark-text);
-            opacity: 0.8;
-            font-family: var(--poppins);
-            font-weight: bold;
-            strong {
-                color: var(--purple);
-            }
-
-
-        }
-        >div {
-            >div {
-                display: flex;
-                align-items: flex-start;
-                span {
-                    position: relative;
-                    right : 13px;
-                    bottom: 17px;
-                    margin: 30px 17px;
-                    background-color: white;
-                    padding: 0.5px;
-                    width: 50px;
-                    height: fit-content;
-                }
-            }
-        }
+      }
     }
     .chair {
-        position: absolute;
-        top: 45%;
-        right : 5%;
-        * {
+      position: absolute;
+      top: 45%;
+      transition: 500ms;
+      right: -100%;
+      * {
         position: relative;
-        }
-        .profile {
+      }
+      .profile {
         left: -30%;
         top: -150px;
         transform: scaleX(-1);
-
+      }
+      .hearts {
+        left: -60%;
+        top: -180px;
+        g {
+          transition: 300ms;
+          scale: 0.9;
+          opacity: 0;
         }
-        .hearts {
-            left: -60%;
-            top: -180px;
-        }
-        .like {
-            left: -65%;
-            top: -160px;
-        }
-        .preview {
-            position: absolute;
-            right: 10%;
-            bottom: 60%;
-        }
-
+      }
+      .like {
+        left: -65%;
+        top: -160px;
+      }
+      .preview {
+        position: absolute;
+        right: 10%;
+        bottom: 60%;
+      }
     }
     // Tags
-    .ghumDhorse, .v4, .special {
-        color: var(--less-dark-text);
-        strong {
-            color: var(--purple);
-        }
-        font-family: var(--tilt);
-        font-weight: bolder;
-        padding: 10px 20px;
-        background-color: --;
+    .ghumDhorse,
+    .v4,
+    .special {
+      color: var(--less-dark-text);
+      strong {
+        color: var(--purple);
+      }
+      font-family: var(--tilt);
+      font-weight: bolder;
+      padding: 1px 20px;
+      background-color: var(--back-content);
+      width: fit-content;
+      font-size: 0.9vw;
+      rotate: -25deg;
+      position: absolute;
+      transition: 500ms;
 
+      @keyframes hashAnimation {
+        from {
+          top: 100%;
+          right: 100%;
+        }
+      }
+    }
+    .ghumDhorse {
+      top: 20%;
+      right: 55%;
+    }
+    .v4 {
+      top: 65%;
+      right: 85%;
+    }
+    .special {
+      top: 65%;
+      right: 45%;
+    }
+    .hasInactive {
+      top: 100%;
+      right: 100%;
+    }
+  }
+  .designer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10%;
+    position: relative;
+    .theDiv {
+      position: absolute;
+      left: -2vw;
+      height: fit-content;
+      translate: -50% -50%;
+      top: 50%;
+      padding: 10px;
+      border-radius: 50%;
+      background-color: var(--purple);
+      transition: 400ms;
+    }
+    .penguineCard {
+      transition: 300ms;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--back-content);
+      width: fit-content;
+      color: var(--less-dark-text);
+      font-family: var(--changa);
+      margin-left: 7%;
+      padding: 15px 40px;
+      font-weight: bold;
+      border-radius: 20px;
+      h1  {
+        color: var(--white);
+        margin-top: 0;
+        font-size: 2vw;
+      }
+      h2 {
+        margin-bottom: 0;
+        font-size: 2vw;
+
+      }
+      p {
+        color: var(--more-dark-text);
+        margin-top: 0px;
+
+        strong {
+          color: var(--purple);
+        }
+      }
+      @keyframes penguineDiv {
+        to {
+        left: 30%;
+
+        }
+      }
+      @keyframes imageDiv {
+        to {
+        left: 70%;
+
+        }
+      }
+      div {
+        background-color: #F0E9FF;
+        padding: 60px 30px;
+        border-radius:1vw 4vw 1vw 4vw;
+        position: relative;
+        left: 0%;
+        animation: penguineDiv 1s forwards;
+      animation-play-state: paused ;
+
+
+      }
+      img {
+        width: 15vw;
+        position: relative;
+        left: 0%;
+        z-index: 1;
+        animation: imageDiv 1s forwards;
+      animation-play-state: paused ;
+
+
+
+      }
+    }
+    .text {
+      color: var(--less-dark-text);
+      font-family: var(--poppins);
+      font-weight: bolder;
+      font-size: 5.5vw;
+      margin-right: 5%;
+      position: relative;
+      overflow: hidden;
+
+      h1 {
+        position: relative;
+        overflow: hidden;
+        bottom: -32%;
+      }
+      svg {
+        position: absolute;
+        left: 80%;
+        translate: 0 10%;
+      path {
+        stroke-dasharray: 733;
+        stroke-dashoffset: 733;
+        animation: dashAnimation 1s forwards;
+      animation-play-state: paused ;
+
+      }
+      @keyframes dashAnimation {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      }
+    }
+    .hash {
+      background-color: var(--back-content);
+      color: var(--less-dark-text);
+      height: fit-content;
+      position: absolute;
+      font-size: 0.9vw;
+      padding: 0 20px;
+      font-family: var(--tilt);
+      animation: hashAnimation 500ms forwards;
+      animation-play-state: paused ;
+
+      white-space: nowrap;
+      strong {
+        color: var(--purple);
+      }
+      @keyframes hashAnimation {
+        from {
+          left :100%;
+        }
+      }
+    }
+    .stillNew {
+      bottom: 50%;
+      left: 40%;
+    }
+    .figmaUser {
+      left: 70%;
+      bottom: 0%;
     }
 
 
-}
+  }
+  .developer {
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+    color: var(--less-dark-text);
+    font-family: var(--changa);
+    overflow-x: hidden;
+    font-size: 3vw;
+    .theDiv {
+      position: absolute;
+      left: -2vw;
+      height: fit-content;
+      translate: -50% -50%;
+      top: 50%;
+      padding: 10px;
+      border-radius: 50%;
+      background-color: var(--purple);
+      transition: 400ms;
+    }
+    .snakePreview {
+      width: 50vw;
+      margin-right: 6vw;
+      z-index: 2;
+    }
+    >div {
+      position: relative;
+    }
+    .snake {
+      position: absolute;
+      right: 54%;
+      bottom: 70%;
+      z-index: -1;
+      rect {
+        // opacity: 0;
+
+        transition: 50ms;
+      }
+    }
+    .text {
+      margin-left: 5%;
+      position: relative;
+      margin-top: 7%;
+      strong {
+        color: var(--purple);
+      }
+      div {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: -20%;
+        @keyframes from0Left {
+          to {
+            left: 0;
+          }
+        }
+        left: -100%;
+        animation: from0Left 500ms forwards;
+        animation-play-state: paused;
+
+        .eye {
+          position: relative;
+          left: -55%;
+          width: 2.5vw;
+          rotate: 10deg;
+        }
+        .spongbob {
+          width: 12vw;
+          position: relative;
+          bottom: -15px;
+        }
+      }
+    }
+    .play {
+      padding: 1.0vw;
+      display: flex;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+      box-sizing: content-box;
+      background-color: #8e1dff;
+      position: absolute;
+      left:70%;
+      bottom:30%;
+      svg {
+      width : 1.5vw;
+
+      }
+      g {
+        fill: var(--less-dark-text);
+      }
+
+
+    }
+    .backendKothin {
+      position: absolute;
+      top:90%;
+      left : 100%;
+      @keyframes fromLeft {
+        to {
+          left: 40%;
+        }
+      }
+      animation: fromLeft 500ms forwards;
+      animation-play-state: paused;
+      white-space: nowrap;
+      font-size: 0.9vw;
+      padding: 0 15px;
+      font-family: var(--tilt);
+      font-weight: bold;
+      background-color: var(--back-content);
+      strong {
+        color: var(--purple);
+
+      }
+    }
+
+  }
+  .leftOver {
+    display: flex;
+    justify-content: center;
+    margin-top: 15vh;
+    position: relative;
+    img {
+      transition: 300ms;
+      translate: 0% 20%;
+      opacity: 0;
+      width: 80vw;
+      height: 40vh;
+      object-fit: cover;
+      object-position: top;
+    }
+    .theDiv {
+      position: absolute;
+      left: -2vw;
+      height: fit-content;
+      translate: -50% -50%;
+      top: 50%;
+      padding: 10px;
+      border-radius: 50%;
+      background-color: var(--purple);
+      transition: 400ms;
+    }
+  }
+  .space {
+    translate: 0 -32%;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    img {
+      
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      @keyframes vibe {
+        to {
+          object-position: 90% center;
+        }
+      }
+      object-position: 100% center;
+      animation: vibe 70ms infinite ease;
+      animation-play-state: paused;
+    }
+  }
+
+
+
+
+
+
+

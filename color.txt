@@ -4,6 +4,6 @@ CBCBCB - more dark text
 
 070A14 - back
 
-04050B - back-content
+ - back-content
 
 8E1DFF - shades of purple

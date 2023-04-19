@@ -1,15 +1,17 @@
 :root {
-  --back-color: #070A14;
+  --back-color: #070a14;
+  --back-content: #04050b;
   --error-text: #f79898;
-  --error-back: #ef383880;
+  --error-back: #ff1b1bac;
   --error-border: #ff000086;
-  --more-dark-text: #CBCBCB;
+  --more-dark-text: #cbcbcb;
   --nato: "Noto Sans", sans-serif;
   --poppins: "Poppins", sans-serif;
   --tilt: "Tilt Warp", cursive;
-  --less-dark-text: #D9D9D9;
-  --white: #FFF;
-  --purple: #8E1DFF;
+  --changa: "Changa", sans-serif;
+  --less-dark-text: #d9d9d9;
+  --white: #fff;
+  --purple: #8e1dff;
 }
 
 body {
@@ -19,6 +21,28 @@ body {
 body * {
   box-sizing: border-box;
   text-decoration: none;
+}
+
+.scrollDown {
+  color: var(--less-dark-text);
+  font-size: 1vw;
+  font-family: var(--nato);
+  position: absolute;
+  left: 2vw;
+  bottom: -495vh;
+}
+.scrollDown p {
+  rotate: -90deg;
+  translate: -50% -200%;
+}
+.scrollDown div {
+  background-color: var(--more-dark-text);
+  width: -moz-fit-content;
+  width: fit-content;
+  opacity: 0.5;
+  padding: 1px;
+  height: 500vh;
+  border-radius: 5px;
 }
 
 .home {
@@ -40,6 +64,18 @@ body * {
   margin-bottom: 10px;
   width: 500px;
   background-color: var(--error-back);
+  animation: divAppear forwards 300ms;
+  translate: 0 -1000%;
+  position: relative;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  animation-delay: 5s;
+}
+@keyframes divAppear {
+  to {
+    translate: 0 0%;
+  }
 }
 .home .errors legend {
   width: 450px;
@@ -50,7 +86,14 @@ body * {
   z-index: -1;
   filter: blur(200px);
   right: 0;
+  opacity: 0;
   background-color: red;
+  animation: blurAppear 2s forwards;
+}
+@keyframes blurAppear {
+  to {
+    opacity: 1;
+  }
 }
 .home .errors img {
   display: inline;
@@ -99,12 +142,16 @@ body * {
   width: 60%;
   height: 100vh;
 }
+.home .left * {
+  position: relative;
+}
 .home .left h1 {
+  transition: 400ms;
+  left: -200%;
   color: var(--less-dark-text);
-  font-size: 70px;
+  font-size: 5vw;
   margin: 0;
   font-family: var(--poppins);
-  position: relative;
   display: flex;
   align-items: center;
 }
@@ -113,14 +160,14 @@ body * {
   background-color: var(--purple);
   left: -18px;
   height: 90%;
-  width: 90px;
+  width: 22%;
   border-radius: 10px;
   z-index: -1;
   opacity: 0.7;
 }
 .home .left p {
   margin: 0;
-  font-size: 20px;
+  font-size: 1.5vw;
   color: var(--more-dark-text);
   opacity: 0.8;
   font-family: var(--poppins);
@@ -130,6 +177,8 @@ body * {
   color: var(--purple);
 }
 .home .left > div > div {
+  transition: 600ms;
+  left: -200%;
   display: flex;
   align-items: flex-start;
 }
@@ -139,14 +188,17 @@ body * {
   bottom: 17px;
   margin: 30px 17px;
   background-color: white;
-  padding: 0.5px;
-  width: 50px;
+  padding: 0.1vw;
+  border-radius: 10px;
+  width: 4.5vw;
+  height: -moz-fit-content;
   height: fit-content;
 }
 .home .chair {
   position: absolute;
   top: 45%;
-  right: 5%;
+  transition: 500ms;
+  right: -100%;
 }
 .home .chair * {
   position: relative;
@@ -160,6 +212,11 @@ body * {
   left: -60%;
   top: -180px;
 }
+.home .chair .hearts g {
+  transition: 300ms;
+  scale: 0.9;
+  opacity: 0;
+}
 .home .chair .like {
   left: -65%;
   top: -160px;
@@ -169,15 +226,347 @@ body * {
   right: 10%;
   bottom: 60%;
 }
-.home .ghumDhorse, .home .v4, .home .special {
+.home .ghumDhorse,
+.home .v4,
+.home .special {
   color: var(--less-dark-text);
   font-family: var(--tilt);
   font-weight: bolder;
-  padding: 10px 20px;
-  background-color: --;
+  padding: 1px 20px;
+  background-color: var(--back-content);
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 0.9vw;
+  rotate: -25deg;
+  position: absolute;
+  transition: 500ms;
 }
-.home .ghumDhorse strong, .home .v4 strong, .home .special strong {
+.home .ghumDhorse strong,
+.home .v4 strong,
+.home .special strong {
+  color: var(--purple);
+}
+@keyframes hashAnimation {
+  from {
+    top: 100%;
+    right: 100%;
+  }
+}
+.home .ghumDhorse {
+  top: 20%;
+  right: 55%;
+}
+.home .v4 {
+  top: 65%;
+  right: 85%;
+}
+.home .special {
+  top: 65%;
+  right: 45%;
+}
+.home .hasInactive {
+  top: 100%;
+  right: 100%;
+}
+
+.designer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10%;
+  position: relative;
+}
+.designer .theDiv {
+  position: absolute;
+  left: -2vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  translate: -50% -50%;
+  top: 50%;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--purple);
+  transition: 400ms;
+}
+.designer .penguineCard {
+  transition: 300ms;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--back-content);
+  width: -moz-fit-content;
+  width: fit-content;
+  color: var(--less-dark-text);
+  font-family: var(--changa);
+  margin-left: 7%;
+  padding: 15px 40px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+.designer .penguineCard h1 {
+  color: var(--white);
+  margin-top: 0;
+  font-size: 2vw;
+}
+.designer .penguineCard h2 {
+  margin-bottom: 0;
+  font-size: 2vw;
+}
+.designer .penguineCard p {
+  color: var(--more-dark-text);
+  margin-top: 0px;
+}
+.designer .penguineCard p strong {
+  color: var(--purple);
+}
+@keyframes penguineDiv {
+  to {
+    left: 30%;
+  }
+}
+@keyframes imageDiv {
+  to {
+    left: 70%;
+  }
+}
+.designer .penguineCard div {
+  background-color: #F0E9FF;
+  padding: 60px 30px;
+  border-radius: 1vw 4vw 1vw 4vw;
+  position: relative;
+  left: 0%;
+  animation: penguineDiv 1s forwards;
+  animation-play-state: paused;
+}
+.designer .penguineCard img {
+  width: 15vw;
+  position: relative;
+  left: 0%;
+  z-index: 1;
+  animation: imageDiv 1s forwards;
+  animation-play-state: paused;
+}
+.designer .text {
+  color: var(--less-dark-text);
+  font-family: var(--poppins);
+  font-weight: bolder;
+  font-size: 5.5vw;
+  margin-right: 5%;
+  position: relative;
+  overflow: hidden;
+}
+.designer .text h1 {
+  position: relative;
+  overflow: hidden;
+  bottom: -32%;
+}
+.designer .text svg {
+  position: absolute;
+  left: 80%;
+  translate: 0 10%;
+}
+.designer .text svg path {
+  stroke-dasharray: 733;
+  stroke-dashoffset: 733;
+  animation: dashAnimation 1s forwards;
+  animation-play-state: paused;
+}
+@keyframes dashAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.designer .hash {
+  background-color: var(--back-content);
+  color: var(--less-dark-text);
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  font-size: 0.9vw;
+  padding: 0 20px;
+  font-family: var(--tilt);
+  animation: hashAnimation 500ms forwards;
+  animation-play-state: paused;
+  white-space: nowrap;
+}
+.designer .hash strong {
+  color: var(--purple);
+}
+@keyframes hashAnimation {
+  from {
+    left: 100%;
+  }
+}
+.designer .stillNew {
+  bottom: 50%;
+  left: 40%;
+}
+.designer .figmaUser {
+  left: 70%;
+  bottom: 0%;
+}
+
+.developer {
+  justify-content: space-between;
+  display: flex;
+  position: relative;
+  color: var(--less-dark-text);
+  font-family: var(--changa);
+  overflow-x: hidden;
+  font-size: 3vw;
+}
+.developer .theDiv {
+  position: absolute;
+  left: -2vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  translate: -50% -50%;
+  top: 50%;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--purple);
+  transition: 400ms;
+}
+.developer .snakePreview {
+  width: 50vw;
+  margin-right: 6vw;
+  z-index: 2;
+}
+.developer > div {
+  position: relative;
+}
+.developer .snake {
+  position: absolute;
+  right: 54%;
+  bottom: 70%;
+  z-index: -1;
+}
+.developer .snake rect {
+  transition: 50ms;
+}
+.developer .text {
+  margin-left: 5%;
+  position: relative;
+  margin-top: 7%;
+}
+.developer .text strong {
+  color: var(--purple);
+}
+.developer .text div {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -20%;
+  left: -100%;
+  animation: from0Left 500ms forwards;
+  animation-play-state: paused;
+}
+@keyframes from0Left {
+  to {
+    left: 0;
+  }
+}
+.developer .text div .eye {
+  position: relative;
+  left: -55%;
+  width: 2.5vw;
+  rotate: 10deg;
+}
+.developer .text div .spongbob {
+  width: 12vw;
+  position: relative;
+  bottom: -15px;
+}
+.developer .play {
+  padding: 1vw;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-sizing: content-box;
+  background-color: #8e1dff;
+  position: absolute;
+  left: 70%;
+  bottom: 30%;
+}
+.developer .play svg {
+  width: 1.5vw;
+}
+.developer .play g {
+  fill: var(--less-dark-text);
+}
+.developer .backendKothin {
+  position: absolute;
+  top: 90%;
+  left: 100%;
+  animation: fromLeft 500ms forwards;
+  animation-play-state: paused;
+  white-space: nowrap;
+  font-size: 0.9vw;
+  padding: 0 15px;
+  font-family: var(--tilt);
+  font-weight: bold;
+  background-color: var(--back-content);
+}
+@keyframes fromLeft {
+  to {
+    left: 40%;
+  }
+}
+.developer .backendKothin strong {
   color: var(--purple);
 }
 
-/*# sourceMappingURL=homepage.css.map */
+.leftOver {
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+  position: relative;
+}
+.leftOver img {
+  transition: 300ms;
+  translate: 0% 20%;
+  opacity: 0;
+  width: 80vw;
+  height: 40vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+.leftOver .theDiv {
+  position: absolute;
+  left: -2vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  translate: -50% -50%;
+  top: 50%;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--purple);
+  transition: 400ms;
+}
+
+.space {
+  translate: 0 -32%;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.space img {
+  width: 100%;
+  height: 70vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 100% center;
+     object-position: 100% center;
+  animation: vibe 70ms infinite ease;
+  animation-play-state: paused;
+}
+@keyframes vibe {
+  to {
+    -o-object-position: 90% center;
+       object-position: 90% center;
+  }
+}/*# sourceMappingURL=homepage.css.map */
